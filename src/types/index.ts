@@ -1,0 +1,9 @@
+export type Language = 'ar' | 'en';
+export type Theme = 'dark' | 'light';
+export type Topic = 'launch' | 'content' | 'campaign' | 'strategy' | 'general';
+export type Period = 'morning' | 'afternoon' | 'evening' | 'any';
+export type Context = { intent: 'booking' | 'unknown'; topic: Topic; date: string | null; dateKind: 'tomorrow' | 'nextWeek' | 'weekday' | 'flexible'; weekday: number | null; period: Period; original: string; referenceDate: string };
+export type Slot = { id: string; date: string; hour: number; minute: number };
+export type Appointment = { id: string; context: Context; slot: Slot; status: 'confirmed'; confirmation: 'local'; durationMinutes: 45; alternative: boolean };
+export type Stage = 'home' | 'request' | 'understanding' | 'slots' | 'approval' | 'execution' | 'complete' | 'company';
+export type Journey = { stage: Stage; context: Context | null; selected: Slot | null; approved: boolean; appointment: Appointment | null; records: Appointment[] };
